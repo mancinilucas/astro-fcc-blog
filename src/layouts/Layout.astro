@@ -1,11 +1,12 @@
 ---
+import Header from "../components/Header.astro"
 interface Props {
 	title: string;
 	description?: string;
 	image?: string;
 }
 
-const { title, description = "Testando o Astro", image = "/images/rng-img.jpg"} = Astro.props;
+const { title, description = "Uma comunidade para os amantes da música.", image = "/images/band.jpg"} = Astro.props;
 ---
 
 <!doctype html>
@@ -19,7 +20,8 @@ const { title, description = "Testando o Astro", image = "/images/rng-img.jpg"} 
 		<meta property="og:image" content={image}>
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="min-h-screen">
+		<Header />
 		<slot />
 	</body>
 </html>
