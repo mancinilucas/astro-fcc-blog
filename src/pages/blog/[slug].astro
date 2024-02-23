@@ -30,5 +30,15 @@ const {Content} = await post.render();
 <Layout title= {post.data.title}>
     <Main>
         <H1 text={post.data.title}/>
+        <img
+            src={post.data.image}
+            alt={post.data.title}
+            width={1024}
+            height={1024 / 1.5}            
+            class="rounded-2xl shadow-xl mb-6 aspect-thumbnail object-cover"
+        />
+        <div class="prose prose-2xl overflow-visible relative mb-20">
+            <Content/>
+        </div>
     </Main>
 </Layout>
