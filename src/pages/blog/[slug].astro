@@ -1,11 +1,12 @@
 ---
-import { getCollection, type CollectionEntry, getEntryBySlug } from 'astro:content';
+import { getEntryBySlug } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import H1 from '../../components/H1.astro';
 import Main from '../../components/Main.astro';
 import { Image } from 'astro:assets';
 
 const {slug} = Astro.params
+
 const post = await getEntryBySlug("posts", slug as string)
 
 if(!post){
@@ -22,8 +23,9 @@ const {Content} = await post.render();
             src={post.data.image}
             alt={post.data.title}
             width={1024}
-            height={1024 / 1.5}            
-            class="rounded-2xl shadow-xl mb-6 aspect-thumbnail object-cover"
+            height={1024 / 1.5}
+            format="webp"
+            class="rounded-2xl shadow-xl mb-28 aspect-thumbnail object-cover"
         />
         <div class="prose prose-2xl overflow-visible relative mb-20">
             <Content/>
